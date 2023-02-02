@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/TurnPenny/weather-cli/issues"
   },
-  "homepage": "https://github.com/TurnPenny/weather-cli#readme"
+  "homepage": "https://github.com/TurnPenny/weather-cli#readme",
+  "dependencies": {
+    "chalk": "^5.2.0"
+  }
 }
