@@ -1,5 +1,8 @@
-const init = () => {
-  console.log('start');
+import { getArgs } from './helpers/args.js';
+
+const initCli = () => {
+  const args = getArgs(process.argv);
+  console.log(args);
 };
 
-init();
+initCli();
