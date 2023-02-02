@@ -1,11 +1,25 @@
-import { bgRed, bgGreen } from 'chalk';
+import chalk from 'chalk';
+import dedent from 'dedent-js';
 
 const printError = error => {
-  console.log(bgRed(` ERROR ${error}`));
+  console.log(chalk.bgRed(` ERROR ${error}`));
 };
 
 const printSuccess = msg => {
-  console.log(bgGreen(` SUCCESS ${msg}`));
+  console.log(chalk.bgGreen(` SUCCESS ${msg}`));
 };
 
-export { printError, printSuccess };
+const printHelp = () => {
+  console.log(
+    dedent(
+      `${chalk.bgCyan(' HELP')}
+        Without paramaters - just weather output
+        -c [CITY] set town
+        -h help
+        -t [API_KEY] save token
+       `
+    )
+  );
+};
+
+export { printError, printSuccess, printHelp };
