@@ -3,6 +3,10 @@ import { printHelp, printError, printSuccess } from './services/log_service.js';
 import { saveToken } from './services/storage.service.js';
 
 const saveTokenHandler = async (token) => {
+  if (!token.length) {
+    printError('The token has not been transferred');
+    return;
+  }
   try {
     await saveToken('token', token);
     printSuccess('token is saved');
