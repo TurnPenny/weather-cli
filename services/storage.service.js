@@ -14,13 +14,21 @@ const saveToken = async (key, value) => {
 
   if (await isExist(filePath)) {
     const file = await promises.readFile(filePath);
-    console.log(JSON.parse(file));
     data = JSON.parse(file);
   }
   console.log(data);
 
   data[key] = value;
-  console.log(filePath);
+  await promises.writeFile(filePath, JSON.stringify(data));
+};
+
+const saveCity = async (key, value) => {
+  let data = {};
+  if (await isExist(filePath)) {
+    const file = await promises.readFile(filePath);
+    data = JSON.parse(file);
+  }
+  data[key] = value;
   await promises.writeFile(filePath, JSON.stringify(data));
 };
 
@@ -42,4 +50,4 @@ const isExist = async (path) => {
   }
 };
 
-export { saveToken, getToken, TOKEN_DICTIONARY };
+export { saveCity, saveToken, getToken, TOKEN_DICTIONARY };
